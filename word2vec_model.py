@@ -8,7 +8,7 @@ all_words = []
 for sent in df["cumle_icerigi"]:
     all_words.append(word_tokenize(sent))    
 
-model = gensim.models.Word2Vec(all_words, size=100)
+model = gensim.models.Word2Vec(all_words, size=100, window=5, min_count=2, workers=10, sg=1)
 
 
 similarity_dolar = model.most_similar("dolar", topn=5)
